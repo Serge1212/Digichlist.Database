@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Digichlist.Database.Configurations
 {
+    /// <summary>
+    /// The defect's configuration.
+    /// </summary>
     public class DefectConfiguration : IEntityTypeConfiguration<Defect>
     {
         public void Configure(EntityTypeBuilder<Defect> builder)
@@ -14,9 +17,8 @@ namespace Digichlist.Database.Configurations
                 .WithOne(d => d.Defect)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOne(d => d.AssignedDefect)
-                .WithOne(d => d.Defect)
-                .OnDelete(DeleteBehavior.Cascade);
+            builder.HasOne(d => d.AssignedWorker)
+                .WithMany(u => u.Defects);
         }
     }
 }

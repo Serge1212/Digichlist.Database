@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Digichlist.Database.Configurations
 {
+    /// <summary>
+    /// The defect image configuration.
+    /// </summary>
     public class DefectImageConfiguration : IEntityTypeConfiguration<DefectImage>
     {
         public void Configure(EntityTypeBuilder<DefectImage> builder)

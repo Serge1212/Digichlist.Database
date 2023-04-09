@@ -10,7 +10,6 @@ namespace Digichlist.Database.Context
         public DbSet<Role> Roles { get; set; }
         public DbSet<Defect> Defects { get; set; }
         public DbSet<DefectImage> DefectImages { get; set; }
-        public DbSet<AssignedDefect> AssignedDefects { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -28,7 +27,6 @@ namespace Digichlist.Database.Context
             modelBuilder.ApplyConfiguration(new DefectConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new DefectImageConfiguration());
-            modelBuilder.ApplyConfiguration(new AssignedDefectConfiguration());
             modelBuilder.ApplyConfiguration(new RoleConfiguration());
         }
     }

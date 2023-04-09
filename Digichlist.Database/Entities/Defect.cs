@@ -1,5 +1,8 @@
 ﻿namespace Digichlist.Database.Entities
 {
+    /// <summary>
+    /// The defect entity. Contains information about any defect found.
+    /// </summary>
     public class Defect
     {
         /// <summary>
@@ -23,21 +26,35 @@
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
-        /// The publisher user.
-        /// Null when none.
+        /// The name of the creator.
+        /// </summary>
+        public string CreatedBy { get; set; }
+
+        /// <summary>
+        /// The date and time the defect was closed.
+        /// </summary>
+        public DateTime? ClosedAt { get; set; }
+
+        /// <summary>
+        /// The date and time the defect status was changed.
+        /// </summary>
+        public DateTime? StatusChangedAt { get; set; }
+
+        /// <summary>
+        /// The status of the defect.
+        /// Null implies this defect was not assigned.
+        /// </summary>
+        public int Status { get; set; }
+
+        /// <summary>
+        /// The assigned worker identifier.
         /// </summary>
         public int? UserId { get; set; }
 
         /// <summary>
-        /// The information about the user that published this defect.
+        /// More information about the assigned worker.
         /// </summary>
-        public User Publisher { get; set; }
-
-        /// <summary>
-        /// The detailed workflow information about this defect.
-        /// Not null only when it's assigned.
-        /// </summary>
-        public AssignedDefect? AssignedDefect { get; set; }
+        public User? AssignedWorker { get; set; }
 
         /// <summary>
         /// The related images.

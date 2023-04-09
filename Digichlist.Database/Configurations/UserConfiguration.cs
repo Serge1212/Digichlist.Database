@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Digichlist.Database.Configurations
 {
+    /// <summary>
+    /// The user's configuration.
+    /// </summary>
     public class UserConfiguration : IEntityTypeConfiguration<User>
     {
         public void Configure(EntityTypeBuilder<User> builder)
@@ -11,8 +14,12 @@ namespace Digichlist.Database.Configurations
             builder.HasKey(u => u.Id);
 
             builder.HasMany(d => d.Defects)
-                .WithOne(u => u.Publisher)
-                .OnDelete(DeleteBehavior.Cascade);
+                .WithOne(u => u.AssignedWorker)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            builder.HasOne(u => u.Role)
+                .WithMany(r => r.Users)
+                .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }
