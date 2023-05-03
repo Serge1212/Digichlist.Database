@@ -4,6 +4,7 @@ using Digichlist.Database.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Digichlist.Database.Migrations
 {
     [DbContext(typeof(DigichlistContext))]
-    partial class DigichlistContextModelSnapshot : ModelSnapshot
+    [Migration("20230502234742_Add CommandTaskInfo table")]
+    partial class AddCommandTaskInfotable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,11 +38,7 @@ namespace Digichlist.Database.Migrations
                     b.Property<DateTime?>("ClosedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("CommandName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("DefectId")
+                    b.Property<int>("DefectId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("ExpiresAt")
@@ -181,7 +179,9 @@ namespace Digichlist.Database.Migrations
                 {
                     b.HasOne("Digichlist.Database.Entities.Defect", "Defect")
                         .WithMany("CommandTasksInfo")
-                        .HasForeignKey("DefectId");
+                        .HasForeignKey("DefectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Defect");
                 });

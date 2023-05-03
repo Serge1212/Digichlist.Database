@@ -60,5 +60,10 @@
         /// The related images.
         /// </summary>
         public List<DefectImage> DefectImages { get; set; } = new();
+
+        /// <summary>
+        /// The related ongoing tasks for this defect.
+        /// </summary>
+        public List<CommandTaskInfo>? CommandTasksInfo { get; set; }
     }
 }

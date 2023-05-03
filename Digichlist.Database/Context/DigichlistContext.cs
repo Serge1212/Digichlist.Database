@@ -6,10 +6,30 @@ namespace Digichlist.Database.Context
 {
     public class DigichlistContext : DbContext
     {
+        /// <summary>
+        /// The db set that reflects the state of Users table.
+        /// </summary>
         public DbSet<User> Users { get; set; }
+
+        /// <summary>
+        /// The db set that reflects the state of Roles table.
+        /// </summary>
         public DbSet<Role> Roles { get; set; }
+
+        /// <summary>
+        /// The db set that reflects the state of Defects table.
+        /// </summary>
         public DbSet<Defect> Defects { get; set; }
+
+        /// <summary>
+        /// The db set that reflects the state of DefectImages table.
+        /// </summary>
         public DbSet<DefectImage> DefectImages { get; set; }
+
+        /// <summary>
+        /// The db set that reflects the state of CommandTaskInfo table.
+        /// </summary>
+        public DbSet<CommandTaskInfo> CommandTasksInfo { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
