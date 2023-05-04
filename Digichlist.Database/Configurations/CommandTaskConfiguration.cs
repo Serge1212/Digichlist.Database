@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace Digichlist.Database.Configurations
 {
     /// <summary>
-    /// The defect's configuration.
+    /// The CommandTask configuration.
     /// </summary>
-    public class CommandTaskInfoConfiguration : IEntityTypeConfiguration<CommandTaskInfo>
+    public class CommandTaskConfiguration : IEntityTypeConfiguration<CommandTask>
     {
-        public void Configure(EntityTypeBuilder<CommandTaskInfo> builder)
+        public void Configure(EntityTypeBuilder<CommandTask> builder)
         {
             builder.HasKey(c => c.Id);
 

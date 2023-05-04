@@ -27,9 +27,9 @@ namespace Digichlist.Database.Context
         public DbSet<DefectImage> DefectImages { get; set; }
 
         /// <summary>
-        /// The db set that reflects the state of CommandTaskInfo table.
+        /// The db set that reflects the state of CommandTask table.
         /// </summary>
-        public DbSet<CommandTaskInfo> CommandTasksInfo { get; set; }
+        public DbSet<CommandTask> CommandTasks { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
