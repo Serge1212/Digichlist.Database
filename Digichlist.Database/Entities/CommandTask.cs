@@ -19,7 +19,7 @@
         /// <summary>
         /// The related user's chat identifier.
         /// </summary>
-        public int ChatId { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// The defect's unique identifier.
