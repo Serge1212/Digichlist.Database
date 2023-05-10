@@ -64,6 +64,6 @@
         /// <summary>
         /// The related ongoing tasks for this defect.
         /// </summary>
-        public List<CommandTask>? CommandTasksInfo { get; set; }
+        public List<CommandTask>? CommandTasks { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace Digichlist.Database.Configurations
             builder.HasKey(c => c.Id);
 
             builder.HasOne(c => c.Defect)
-                .WithMany(d => d.CommandTasksInfo)
+                .WithMany(d => d.CommandTasks)
                 .OnDelete(DeleteBehavior.SetNull);
         }
     }

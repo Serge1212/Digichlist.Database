@@ -17,6 +17,10 @@ namespace Digichlist.Database.Configurations
                 .WithOne(d => d.Defect)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            builder.HasMany(d => d.CommandTasks)
+                .WithOne(d => d.Defect)
+                .OnDelete(DeleteBehavior.Cascade);
+
             builder.HasOne(d => d.AssignedWorker)
                 .WithMany(u => u.Defects);
         }
